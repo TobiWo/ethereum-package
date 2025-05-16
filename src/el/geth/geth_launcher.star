@@ -301,7 +301,13 @@ def get_config(
         )
     env_vars = participant.el_extra_env_vars
     config_args = {
-        "image": participant.el_image,
+        "image" = ImageSpec(
+            image = participant.el_image,
+            username = "",
+            password = "",
+            registry = "",
+        )
+        # "image": participant.el_image,
         "ports": used_ports,
         "public_ports": public_ports,
         "cmd": [command_str],
